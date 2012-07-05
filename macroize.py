@@ -84,7 +84,7 @@ class Macroizer(object):
 
         ppdirective = r"define|undef|if|else|endif"
         pattern = re.compile(
-            r"^#define\s+(?:[^#]|##|#(?!" + ppdirective + r"))*?/\*\*/",
+            r"^#\s*define\s+(?:[^#]|##|#(?!" + ppdirective + r"))*?/\*\*/",
             re.MULTILINE
         )
 
