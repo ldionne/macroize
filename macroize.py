@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import re
 import argparse
@@ -79,7 +79,8 @@ class Macroizer(object):
 
     def replace(self, string, action):
         def replacer(match):
-            *tosub, last = match.group().splitlines()
+            lines = match.group().splitlines()
+            tosub, last = lines[:-1], lines[-1]
             return "\n".join(list(map(action, tosub)) + [last])
 
         ppdirective = r"define|undef|if|else|endif"
